@@ -1,0 +1,18 @@
+/* Write your CSS here */
+.tabItem {
+  background-color: transparent;
+  width: 100%;
+  text-align: center;
+}
+.tabBtn {
+  background-color: transparent;
+  border: none;
+  border-bottom: #7b8794 solid 1px;
+  color: #7b8794;
+  font-weight: bolder;
+  cursor: pointer;
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* background-color: black; */
+}

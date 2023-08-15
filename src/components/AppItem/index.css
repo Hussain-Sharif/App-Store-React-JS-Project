@@ -1,0 +1,25 @@
+/* Write your CSS here */
+.appItem {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  margin-left: 0px;
+  padding: 10px;
+  background-color: #ffffff;
+  /* max-width: 60vw; */
+  width: 12vw;
+}
+.appImg {
+  height: 75px;
+  width: 75px;
+}
+.appName {
+  color: #1e293b;
+  font-weight: bold;
+  font-size: 18px;
+}

@@ -44,6 +44,9 @@
   margin-right: 35px;
 }
 .appDiv {
+  margin-right: 35px;
+  overflow-y: scroll;
+  text-align: center;
   list-style-type: none;
   display: flex;
   justify-content: center;

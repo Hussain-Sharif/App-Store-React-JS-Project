@@ -299,24 +299,33 @@ class AppStore extends Component {
     inputSearch: '',
   }
 
-  // onChange=(event)=>{
-  //     const typedSearch=event.target.value
-  //     const filtered=
-  //     this.setState()
-  // }
+  onChangeTab = clickTab => {
+    this.setState({activeTabId: clickTab})
+  }
+
+  onChangeInput = event => {
+    const entered = event.target.value
+    console.log(entered)
+    this.setState({inputSearch: entered})
+  }
 
   render() {
     const {activeTabId, inputSearch} = this.state
     console.log(activeTabId, inputSearch)
+
+    const filtered = appsList.filter(eachApp =>
+      eachApp.appName.toLowerCase().includes(inputSearch.toLowerCase()),
+    )
     return (
       <div className="bg-main">
         <h1 className="head">App Store</h1>
         <div className="searchDiv">
           <input
             placeholder="Search"
-            // value={inputSearch}
             className="searchInput"
             type="search"
+            value={inputSearch}
+            onChange={this.onChangeInput}
           />
           <img
             src="https://assets.ccbp.in/frontend/react-js/app-store/app-store-search-img.png"
@@ -326,13 +335,20 @@ class AppStore extends Component {
         </div>
         <ul className="tabDiv">
           {tabsList.map(eachTab => (
-            <TabItem key={eachTab.tabId} eachTab={eachTab} />
+            <TabItem
+              key={eachTab.tabId}
+              onChangeTab={this.onChangeTab}
+              eachTab={eachTab}
+              isActive={activeTabId === eachTab.tabId}
+            />
           ))}
         </ul>
         <ul className="appDiv">
-          {appsList.map(eachApp => (
-            <AppItem key={eachApp.appId} eachApp={eachApp} />
-          ))}
+          {filtered.map(eachApp =>
+            eachApp.category === activeTabId ? (
+              <AppItem key={eachApp.appId} eachApp={eachApp} />
+            ) : null,
+          )}
         </ul>
       </div>
     )

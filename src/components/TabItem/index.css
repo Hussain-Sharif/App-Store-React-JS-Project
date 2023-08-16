@@ -16,3 +16,7 @@
   padding-right: 10px;
   /* background-color: black; */
 }
+.selectedTab {
+  color: #2563eb;
+  border-bottom: #2563eb solid 3px;
+}
